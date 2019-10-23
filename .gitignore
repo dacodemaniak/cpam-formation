@@ -1,0 +1,5 @@
+node_modules
+dist
+wp-admin
+wp-includes
+wp-*.php
