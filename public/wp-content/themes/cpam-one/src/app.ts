@@ -1,5 +1,7 @@
 import * as $ from 'jquery';
+import 'bootstrap';
 
+import { Toggler } from './toggler/toggler';
 /**
  * @name App
  * @author Vaelia
@@ -12,6 +14,7 @@ import './main.scss';
 export class App {
     public constructor() {
         console.log('App is running after platform is ready');
+        const toggler: Toggler = new Toggler('article header');
     }
 }
 

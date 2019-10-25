@@ -9660,5 +9660,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.article-content.hidden {
+  display: none;
+}
 
 /*# sourceMappingURL=custom.css.map*/

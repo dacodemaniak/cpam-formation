@@ -24,7 +24,9 @@ get_header();
                     <header>
                         <h2><?php echo the_title(); ?></h2>
                     </header>
-                    <?php echo the_content(); ?>
+                    <div class="article-content hidden">
+                        <?php echo the_content(); ?>
+                    </div>
                 </article>
                 <?php } // End foreach
                 // else... no posts

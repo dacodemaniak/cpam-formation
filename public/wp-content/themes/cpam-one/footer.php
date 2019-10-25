@@ -7,5 +7,6 @@
 */
 wp_footer(); // Gets the Wordpress original footer
 ?>
+        </div> <!-- end of div container-fluid
     </body>
 </html>

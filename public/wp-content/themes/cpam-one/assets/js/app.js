@@ -167,8 +167,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "App", function() { return App; });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
-/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toggler/toggler */ "./src/toggler/toggler.ts");
+/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
+/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 /**
  * @name App
@@ -180,6 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 class App {
     constructor() {
         console.log('App is running after platform is ready');
+        const toggler = new _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__["Toggler"]('article header');
     }
 }
 // Bootstrap the app after DOM is ready
@@ -198,6 +204,38 @@ jquery__WEBPACK_IMPORTED_MODULE_0__(document).ready(() => {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/toggler/toggler.ts":
+/*!********************************!*\
+  !*** ./src/toggler/toggler.ts ***!
+  \********************************/
+/*! exports provided: Toggler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Toggler", function() { return Toggler; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+class Toggler {
+    constructor(selector) {
+        this.selector = selector;
+        this.setListener();
+    }
+    setListener() {
+        jquery__WEBPACK_IMPORTED_MODULE_0__(this.selector).on('click', (event) => this.toggle(event));
+    }
+    toggle(event) {
+        const element = jquery__WEBPACK_IMPORTED_MODULE_0__(event.target);
+        console.log(JSON.stringify(element));
+        const content = element.next('.article-content');
+        content.toggleClass('hidden');
+    }
+}
+
 
 /***/ })
 
