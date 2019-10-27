@@ -31,6 +31,5 @@ final class Annee extends AbstractTaxonomy {
             ->showAdminColumn()
             ->hasQueryVar()
             ->rewriteRules();
-
     }
 }

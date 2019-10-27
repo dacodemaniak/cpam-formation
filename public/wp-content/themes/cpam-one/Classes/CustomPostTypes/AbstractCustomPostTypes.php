@@ -55,7 +55,7 @@ abstract class AbstractCustomPostTypes {
     public static function addTaxonomies(): void {
         if (count(self::$taxonomies)) {
             foreach(self::$taxonomies as $taxonomy) {
-                register_taxonomy($taxonomy->getTaxonomy(), self::$postType, $taxonomy->getArgs());
+                $result = register_taxonomy($taxonomy->getTaxonomy(), self::$postType, $taxonomy->getArgs());
             }
         }
     }

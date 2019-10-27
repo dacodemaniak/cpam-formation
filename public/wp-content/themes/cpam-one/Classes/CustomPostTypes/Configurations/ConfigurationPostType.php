@@ -13,7 +13,7 @@ class ConfigurationPostType extends AbstractCustomPostTypes {
         self::$postType = $postType;
 
         self::$labels["name"] = _x("Configurations", "Post Type General Name");
-        self::$labels["singular_names"] = _x("Configuration", "Post Type Singular Name");
+        self::$labels["singular_name"] = _x("Configuration", "Post Type Singular Name");
         self::$labels["menu_name"] = __("Configurations");
         self::$labels["all_items"] = __("Toutes les configurations");
         self::$labels["view_item"] = __("Voir les configurations");
@@ -21,18 +21,18 @@ class ConfigurationPostType extends AbstractCustomPostTypes {
         self::$labels["add_new"] = __("Ajouter");
         self::$labels["edit_item"] = __("Editer la configuration");
         self::$labels["update_item"] = __("Modifier la configuration");
-        self::$labels["search_item"] = __("Rechercher une configuration");
+        self::$labels["search_items"] = __("Rechercher une configuration");
         self::$labels["not_found"] = __("Configuration non trouvée");
         self::$labels["not_found_in_trash"] = __("Configuration non trouvée dans la corbeille");
 
-        // Sets the rewriting rules
-        self::$labels["supports"] = [
+        // Sets args
+        self::$args["label"] = __("Configurations");
+        self::$args["supports"] = [
             "title",
             "editor",
-            "excerpt",
             "author",
             "thumbnail",
-            "custom_fields"
+            "custom-fields",
         ];
         self::$args["labels"] = self::$labels;
         self::$args["menu_icon"] = "dashicons-desktop";

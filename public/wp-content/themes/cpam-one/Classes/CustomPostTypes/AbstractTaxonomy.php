@@ -8,7 +8,11 @@
  */
 abstract class AbstractTaxonomy implements ITaxonomy {
     protected $labels = [];
-    protected $args = [];
+    protected $args = [
+        "show_in_menu" => true,
+        "show_in_admin_bar" => true,
+        "show_in_nav_menu" => true,
+    ];
     protected $taxonomy;
 
     public function getTaxonomy(): string {

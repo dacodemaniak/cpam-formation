@@ -37,5 +37,6 @@ add_action(
 );
 add_action(
     "init",
-    "AbstractCustomPostTypes::addTaxonomies"
+    "AbstractCustomPostTypes::addTaxonomies",
+    0
 );
