@@ -10,6 +10,7 @@
 require_once(__DIR__ . "/Classes/Assets/CSS.php");
 require_once(__DIR__ . "/Classes/Assets/JS.php");
 require_once(__DIR__ . "/Classes/Menu/Menus.php");
+require_once(__DIR__ . "/Classes/CustomPostTypes/Configurations/ConfigurationPostType.php");
 
 // Hooks enqueing styles
 add_action(
@@ -26,4 +27,15 @@ add_action(
 add_action(
     "init",
     "Menus::register"
+);
+
+// Hooks the custom post type
+$configuration = new ConfigurationPostType("configuration");
+add_action(
+    "init",
+    "AbstractCustomPostTypes::register"
+);
+add_action(
+    "init",
+    "AbstractCustomPostTypes::addTaxonomies"
 );
