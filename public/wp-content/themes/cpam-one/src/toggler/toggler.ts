@@ -17,8 +17,10 @@ export class Toggler {
 
     private toggle(event: any): void {
         const element: JQuery = $(event.target);
-        console.log(JSON.stringify(element));
-        const content: JQuery = element.next('.article-content');
+        
+        console.log(element.is('h2') ? 'h2 clicked' : 'other element clicked');
+
+        const content: JQuery = element.parent().next('.article-content');
 
         content.toggleClass('hidden');
     }
