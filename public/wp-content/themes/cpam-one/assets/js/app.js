@@ -230,8 +230,8 @@ class Toggler {
     }
     toggle(event) {
         const element = jquery__WEBPACK_IMPORTED_MODULE_0__(event.target);
-        console.log(JSON.stringify(element));
-        const content = element.next('.article-content');
+        console.log(element.is('h2') ? 'h2 clicked' : 'other element clicked');
+        const content = element.parent().next('.article-content');
         content.toggleClass('hidden');
     }
 }

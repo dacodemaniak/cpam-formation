@@ -4215,11 +4215,11 @@ body.page .main-navigation {
 }
 
 .entry .entry-title a {
-  color: #000;
+  color: inherit;
 }
 
 .entry .entry-title a:hover {
-  color: red;
+  color: #4a4a4a;
 }
 
 .entry .entry-meta,
