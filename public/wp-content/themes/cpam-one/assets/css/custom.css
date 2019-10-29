@@ -9660,8 +9660,13 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.article-content.hidden {
-  display: none;
+/**
+* CSS Rules for title in configuration table
+table.table td.configuration-title {...}
+**/
+table.table td.configuration-title {
+  color: #af8080;
+  background-color: #5c3a3a;
 }
 
 /*# sourceMappingURL=custom.css.map*/

@@ -5,4 +5,20 @@
 **/
 
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
-@import "./article.scss";
+$table-main-color: rgba(175, 128, 128, 1);
+
+/**
+* CSS Rules for title in configuration table
+table.table td.configuration-title {...}
+**/
+
+table {
+    &.table {
+        td {
+            &.configuration-title {
+                color: $table-main-color;
+                background-color: darken($table-main-color, 30%);
+            }
+        }
+    }
+}
