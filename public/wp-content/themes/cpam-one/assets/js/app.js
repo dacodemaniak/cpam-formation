@@ -205,6 +205,43 @@ class ApiEndPoint {
 
 /***/ }),
 
+/***/ "./src/ConfigurationManager.ts":
+/*!*************************************!*\
+  !*** ./src/ConfigurationManager.ts ***!
+  \*************************************/
+/*! exports provided: ConfigurationManager */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigurationManager", function() { return ConfigurationManager; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+class ConfigurationManager {
+    constructor() {
+        this.button = jquery__WEBPACK_IMPORTED_MODULE_0__('#add');
+        this.form = jquery__WEBPACK_IMPORTED_MODULE_0__('#new-config');
+        this.setEventListener();
+    }
+    setEventListener() {
+        this.form.on('keyup', (event) => this.manageForm(event));
+    }
+    manageForm(event) {
+        const title = jquery__WEBPACK_IMPORTED_MODULE_0__('#title');
+        const value = title.val().toString().trim();
+        if (value.length >= 5) {
+            this.button.removeAttr('disabled');
+        }
+        else {
+            this.button.attr('disabled', 'disabled');
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app.ts":
 /*!********************!*\
   !*** ./src/app.ts ***!
@@ -220,9 +257,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toggler/toggler */ "./src/toggler/toggler.ts");
-/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
-/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ApiEndPoint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ApiEndPoint */ "./src/ApiEndPoint.ts");
+/* harmony import */ var _ConfigurationManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ConfigurationManager */ "./src/ConfigurationManager.ts");
+/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
+/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _ApiEndPoint__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ApiEndPoint */ "./src/ApiEndPoint.ts");
+
 
 
 
@@ -239,7 +278,9 @@ class App {
         console.log('App is running after platform is ready');
         const toggler = new _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__["Toggler"]('article header');
         // Instanciation de la classe
-        const api = new _ApiEndPoint__WEBPACK_IMPORTED_MODULE_4__["ApiEndPoint"]();
+        const api = new _ApiEndPoint__WEBPACK_IMPORTED_MODULE_5__["ApiEndPoint"]();
+        // Configuration Managing
+        const configManager = new _ConfigurationManager__WEBPACK_IMPORTED_MODULE_3__["ConfigurationManager"]();
     }
 }
 // Bootstrap the app after DOM is ready

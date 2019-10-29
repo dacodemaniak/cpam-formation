@@ -2,6 +2,7 @@ import * as $ from 'jquery';
 import 'bootstrap';
 
 import { Toggler } from './toggler/toggler';
+import { ConfigurationManager } from './ConfigurationManager';
 /**
  * @name App
  * @author Vaelia
@@ -19,6 +20,9 @@ export class App {
 
         // Instanciation de la classe
         const api: any = new ApiEndPoint();
+
+        // Configuration Managing
+        const configManager: ConfigurationManager = new ConfigurationManager();
     }
 }
 
