@@ -10,11 +10,15 @@ import { Toggler } from './toggler/toggler';
  */
 
 import './main.scss';
+import { ApiEndPoint } from './ApiEndPoint';
 
 export class App {
     public constructor() {
         console.log('App is running after platform is ready');
         const toggler: Toggler = new Toggler('article header');
+
+        // Instanciation de la classe
+        const api: any = new ApiEndPoint();
     }
 }
 

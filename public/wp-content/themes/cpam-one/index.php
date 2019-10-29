@@ -13,28 +13,7 @@ get_header();
 <!-- Loop over articles -->
 <main>
     <section class="row">
-        <?php
-            if (have_posts()) {
-                $posts = get_posts(); // Get all posts
-                foreach ($posts as $post) {
-                    // Convert post as datas
-                    setup_postdata($post);
-                ?>
-                <article class="col-md-6 col-12">
-                    <header>
-                        <h2><?php echo the_title(); ?></h2>
-                    </header>
-                    <div class="article-content hidden">
-                        <?php echo the_content(); ?>
-                    </div>
-                </article>
-                <?php } // End foreach
-                // else... no posts
-                } else { ?>
-                    <div class="alert alert-warning">
-                        Désolé, aucun post à afficher
-                    </div>
-                <?php } // End of else ?>
+        <div postsList></div>
     </section>
 </main>
 

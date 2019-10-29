@@ -155,6 +155,56 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/ApiEndPoint.ts":
+/*!****************************!*\
+  !*** ./src/ApiEndPoint.ts ***!
+  \****************************/
+/*! exports provided: ApiEndPoint */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiEndPoint", function() { return ApiEndPoint; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+class ApiEndPoint {
+    constructor() {
+        this.apiRoot = 'http://127.0.0.1/wp-json/wp/v2/';
+        this.posts = new Array();
+        // Appel à l'API
+        this.getPosts();
+    }
+    getPosts() {
+        jquery__WEBPACK_IMPORTED_MODULE_0__["ajax"]({
+            url: this.apiRoot + 'posts',
+            method: 'get',
+            dataType: 'json',
+            // On Success...
+            success: (datas) => {
+                this.render(datas);
+            },
+            error: (error) => { }
+        });
+    }
+    render(datas) {
+        // Créer un élément ul dans le DOM
+        const list = jquery__WEBPACK_IMPORTED_MODULE_0__('<ul>');
+        // Parcourir le résultat de l'appel de l'API
+        datas.forEach((data) => {
+            const row = jquery__WEBPACK_IMPORTED_MODULE_0__('<li>');
+            row.html(data.title.rendered);
+            // Ajouter le li dans le ul
+            row.appendTo(list);
+        });
+        // Finalement... ajouter le tout dans ?
+        list.appendTo(jquery__WEBPACK_IMPORTED_MODULE_0__('[postsList]'));
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app.ts":
 /*!********************!*\
   !*** ./src/app.ts ***!
@@ -172,6 +222,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toggler/toggler */ "./src/toggler/toggler.ts");
 /* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
 /* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ApiEndPoint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ApiEndPoint */ "./src/ApiEndPoint.ts");
 
 
 
@@ -182,10 +233,13 @@ __webpack_require__.r(__webpack_exports__);
  * @abstract Main entry for client application
  */
 
+
 class App {
     constructor() {
         console.log('App is running after platform is ready');
         const toggler = new _toggler_toggler__WEBPACK_IMPORTED_MODULE_2__["Toggler"]('article header');
+        // Instanciation de la classe
+        const api = new _ApiEndPoint__WEBPACK_IMPORTED_MODULE_4__["ApiEndPoint"]();
     }
 }
 // Bootstrap the app after DOM is ready
